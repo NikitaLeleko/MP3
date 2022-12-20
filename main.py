@@ -96,8 +96,8 @@ def learning(alpha: float, numbers, ref_vector: list, table: list, sequence: lis
             input = input.T
             context = w3 @ context
             hide_layer = w1 @ input
-            hide_layer = hide_layer + context
-            hide_layer = hide_layer - offset
+            hide_layer += context
+            hide_layer -= offset
             oELU = hide_layer
             hide_layer = ELU(alpha, hide_layer)
             context = hide_layer
